@@ -11,7 +11,6 @@
     "@types/node": "^22.9.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "ahooks": "^3.8.1",
     "axios": "^1.7.7",
     "lodash.debounce": "^4.0.8",
     "qs": "^6.13.0",
@@ -30,7 +29,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "vercel-build": "npm install --legacy-peer-deps && react-scripts build"
   },
   "eslintConfig": {
     "extends": [
