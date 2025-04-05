@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { PizzaState, Status } from './types';
-import { fetchPizzas, fetchPizzaById } from './asyncActions';
+import { ProductState, Status } from './types';
+import { fetchProducts, fetchProductById } from './asyncActions';
 
-const initialState: PizzaState = {
+const initialState: ProductState = {
   items: [],
   itemsById: null,
   status: Status.LOADING,
 };
 
-export const pizzaSlice = createSlice({
-  name: 'pizza',
+export const storeSlice = createSlice({
+  name: 'store',
   initialState,
   reducers: {
     setItems(state, action) {
@@ -17,37 +17,37 @@ export const pizzaSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchPizzas.pending, (state) => {
+    builder.addCase(fetchProducts.pending, (state) => {
       state.status = Status.LOADING;
       state.items = [];
     });
 
-    builder.addCase(fetchPizzaById.pending, (state) => {
+    builder.addCase(fetchProductById.pending, (state) => {
       state.status = Status.LOADING;
       state.itemsById = null;
     });
 
-    builder.addCase(fetchPizzas.fulfilled, (state, action) => {
+    builder.addCase(fetchProducts.fulfilled, (state, action) => {
       state.items = action.payload;
       state.status = Status.SUCCESS;
     });
 
-    builder.addCase(fetchPizzaById.fulfilled, (state, action) => {
+    builder.addCase(fetchProductById.fulfilled, (state, action) => {
       state.itemsById = action.payload;
       state.status = Status.SUCCESS;
     });
 
-    builder.addCase(fetchPizzas.rejected, (state) => {
+    builder.addCase(fetchProducts.rejected, (state) => {
       state.status = Status.ERROR;
       state.items = [];
     });
 
-    builder.addCase(fetchPizzaById.rejected, (state) => {
+    builder.addCase(fetchProductById.rejected, (state) => {
       state.status = Status.ERROR;
       state.itemsById = null;
     });
   },
 });
 
-export const { setItems } = pizzaSlice.actions;
-export default pizzaSlice.reducer;
+export const { setItems } = storeSlice.actions;
+export default storeSlice.reducer;

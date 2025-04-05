@@ -8,7 +8,7 @@ type CategoriesProps = {
 
 const Categories: React.FC<CategoriesProps> = memo(({ value, onChangeCategory }) => {
   // useWhyDidYouUpdate('Categories', { value, onChangeCategory });
-  const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
+  const categories = ['Все', 'Adidas', 'New Balance', 'Puma', 'Nike', 'Reebok'];
 
   return (
     <div className="categories">

@@ -22,6 +22,7 @@ const CartItemBlock: React.FC<CartItemProps> = ({
   count,
   imageUrl,
 }) => {
+  console.log(type, 'type');
   const dispatch = useAppDispatch();
 
   const onClickPlus = () => {
@@ -37,15 +38,16 @@ const CartItemBlock: React.FC<CartItemProps> = ({
       dispatch(removeItem(id));
     }
   };
+  const percent = (price / 100) * 50;
   return (
     <div className="cart__item">
       <div className="cart__item-img">
-        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+        <img className="product-block__image" src={imageUrl} alt="Product" />
       </div>
       <div className="cart__item-info">
         <h3>{title}</h3>
         <p>
-          {type}, {size} см.
+          {type}, {size}
         </p>
       </div>
       <div className="cart__item-count">
@@ -91,7 +93,7 @@ const CartItemBlock: React.FC<CartItemProps> = ({
         </button>
       </div>
       <div className="cart__item-price">
-        <b>{price * count} ₽</b>
+        <b>{type === 'Копия' ? percent * count : price * count} ₽</b>
       </div>
       <div onClick={onClickRemove} className="cart__item-remove">
         <div className="button button--outline button--circle">

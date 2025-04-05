@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logoPizza from './assets/img/pizza-logo.svg';
+import logoStore from './assets/img/logoStore.png';
+
 import Search from './Search';
 import { useSelector } from 'react-redux';
 import { selectCart } from '../redux/cart/selectors';
@@ -24,10 +25,10 @@ const Header: React.FC = () => {
       <div className="container">
         <Link to={'/'}>
           <div className="header__logo">
-            <img width="38" src={logoPizza} alt="Pizza logo" />
+            <img width="38" src={logoStore} alt="Store logo" />
             <div>
-              <h1>React Pizza</h1>
-              <p>самая вкусная пицца во вселенной</p>
+              <h1>React Store</h1>
+              <p>Интернет магазин</p>
             </div>
           </div>
         </Link>

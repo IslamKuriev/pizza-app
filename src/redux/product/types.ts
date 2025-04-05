@@ -1,4 +1,4 @@
-export type PizzaItem = {
+export type ProductItem = {
   id: string;
   title: string;
   price: number;
@@ -15,13 +15,13 @@ export enum Status {
   ERROR = 'error',
 }
 
-export interface PizzaState {
-  items: PizzaItem[];
-  itemsById: PizzaItem | null;
+export interface ProductState {
+  items: ProductItem[];
+  itemsById: ProductItem | null;
   status: Status;
 }
 
-export type FetchPizzazParams = {
+export type FetchProductsParams = {
   sortBy: string;
   order: string;
   category: string;

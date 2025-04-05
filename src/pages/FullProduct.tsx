@@ -2,18 +2,18 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch } from '../redux/store';
-import { selectPizzaData } from '../redux/pizza/selectors';
-import { fetchPizzaById } from '../redux/pizza/asyncActions';
+import { selectProductData } from '../redux/product/selectors';
+import { fetchProductById } from '../redux/product/asyncActions';
 
-const FullPiiza: React.FC = () => {
+const FullProduct: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { itemsById, status } = useSelector(selectPizzaData);
+  const { itemsById, status } = useSelector(selectProductData);
   const { id } = useParams<{ id: string | undefined }>();
 
   useEffect(() => {
     if (id) {
-      dispatch(fetchPizzaById({ id }));
+      dispatch(fetchProductById({ id }));
     }
   }, [dispatch, id]);
 
@@ -29,12 +29,12 @@ const FullPiiza: React.FC = () => {
   }
 
   if (!itemsById) {
-    return <div className="container">Пицца не найдена</div>;
+    return <div className="container">Товар не найдена</div>;
   }
 
   return (
     <div className="container">
-      <img src={itemsById.imageUrl} alt="Pizza" />
+      <img style={{ width: '260px' }} src={itemsById.imageUrl} alt="Product" />
       <h2>{itemsById.title}</h2>
       <h4>{itemsById.price} ₽</h4>
       <div className="button pay-btn">
@@ -46,4 +46,4 @@ const FullPiiza: React.FC = () => {
   );
 };
 
-export default FullPiiza;
+export default FullProduct;

@@ -13,7 +13,7 @@ body {
   background-color: #fff;
   margin: 50px auto;
   border-radius: 10px;
-  max-width: 1400px;
+  max-width: 1500px;
 
   @media (max-width: 645px) {
     width: calc(100vw - 30px);
@@ -330,7 +330,7 @@ body {
         border-color: darken($color: $gray-line, $amount: 10);
 
         span {
-          color: darken($color: $gray-line, $amount: 20);
+          color: #666262;
           font-weight: 500;
           font-weight: 600;
         }
